@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Slack Oauth - App Credentials</title>
+    <style>
+      html,
+      body {
+        min-height: 100%;
+      }
+      body,
+      div,
+      form,
+      input,
+      select,
+      p {
+        padding: 0;
+        margin: 0;
+        outline: none;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        color: #666;
+        line-height: 22px;
+      }
+      h1 {
+        margin: 15px 0;
+        font-weight: 400;
+      }
+      .testbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: inherit;
+        padding: 30px;
+      }
+      form {
+        width: 100%;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 2px 5px #ccc;
+      }
+      input {
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+      input:hover {
+        outline: none;
+        border: 1px solid #095484;
+      }
+      input {
+        width: calc(100% - 10px);
+        padding: 5px;
+      }
+      .btn-block {
+        margin-top: 20px;
+        text-align: center;
+      }
+      button {
+        width: 150px;
+        padding: 10px;
+        border: none;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        background-color: #095484;
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0666a3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="testbox">
+      <form action="/getTokens" method="POST">
+        <h1>App Credentials</h1>
+        <div class="item">
+          <p>Client ID</p>
+          <input type="text" name="clientId" />
+        </div>
+        <div class="item">
+          <p>Client Secret</p>
+          <input type="text" name="clientSecret" />
+        </div>
+        <input type="hidden" name="code" value="<%- code %>" />
+        <div class="btn-block">
+          <button type="submit" href="/">Get Tokens!</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

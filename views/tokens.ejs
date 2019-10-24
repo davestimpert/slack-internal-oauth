@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Slack Oauth - App Credentials</title>
+    <style>
+      html,
+      body {
+        min-height: 100%;
+      }
+      body,
+      div,
+      form,
+      input,
+      select,
+      p {
+        padding: 0;
+        margin: 0;
+        outline: none;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        color: #666;
+        line-height: 22px;
+      }
+      h1 {
+        margin: 15px 0;
+        font-weight: 400;
+      }
+      .testbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: inherit;
+        padding: 30px;
+      }
+      form {
+        width: 100%;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 2px 5px #ccc;
+      }
+      input {
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+      input:hover {
+        outline: none;
+        border: 1px solid #095484;
+      }
+      input {
+        width: calc(100% - 100px);
+        padding: 5px;
+      }
+      .btn-block {
+        margin-top: 20px;
+        text-align: center;
+      }
+      button {
+        width: 75px;
+        padding: 10px;
+        border: none;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        background-color: #095484;
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0666a3;
+      }
+    </style>
+    <script>
+      function copy(id) {
+        /* Get the text field */
+        var copyText = document.getElementById(id);
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+
+        /* Alert the copied text */
+        alert("Copied");
+
+        return false
+      }
+    </script>
+  </head>
+  <body>
+    <div class="testbox">
+      <form onsubmit="return false">
+        <h1>App Tokens</h1>
+        <div class="item">
+          <p>Access Token</p>
+          <input
+            type="text"
+            id="accessToken"
+            disabled
+            value="<%- access_token%>"
+          />
+          <button onclick="copy('accessToken')">copy</button>
+        </div>
+        <% if (locals.bot_token) { %>
+        <div class="item">
+          <p>Bot Token</p>
+          <input type="text" id="botToken" disabled value="<%- bot_token %>" />
+          <button onclick="copy('botToken')">copy</button>
+        </div>
+        <% } %>
+        <div class="item">
+          <p>Scope</p>
+          <input type="text" id="scope" disabled value="<%- scope %>" />
+          <button onclick="copy('scope')">copy</button>
+        </div>
+        <div class="item">
+          <p>User ID</p>
+          <input type="text" id="user_id" disabled value="<%- user_id %>" />
+          <button onclick="copy('user_id')">copy</button>
+        </div>
+        <div class="item">
+          <p>Team</p>
+          <input type="text" id="team_id" disabled value="<%- team_id %>" />
+          <button onclick="copy('team_id')">copy</button>
+        </div>
+        <% if (locals.enterprise_id) { %>
+        <div class="item">
+          <p>Enterprise ID</p>
+          <input
+            type="text"
+            id="enterprise_id"
+            disabled
+            value="<%- enterprise_id %>"
+          />
+          <button onclick="copy('enterprise_id')">copy</button>
+        </div>
+        <% } %>
+        <div class="item">
+          <p>Team Name</p>
+          <input
+            type="text"
+            id="team_name"
+            disabled
+            value="<%- team_name %>"
+          />
+          <button onclick="copy('team_name')">copy</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
