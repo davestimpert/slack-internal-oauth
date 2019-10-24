@@ -31,4 +31,6 @@ After **Allow**ing access, you should land on a form served by this app that pro
 and Client Secret.  These can be found on your app's **Basic Information** page under
 **App Credentials**.
 
+![screenshot](screenshot.png)
+
 Submitting the form with the correct app credentials will give you access to tokens on the next page.
