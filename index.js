@@ -1,8 +1,13 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const port = 5000
 const { WebClient } = require('@slack/web-api');
+
+const port = Number(process.argv[2])
+if (!Number.isInteger(port) || port < 1 || port > Math.pow(2,16)) {
+  console.error('First argument must be a valid port')
+  process.exit(1)
+}
 
 const web = new WebClient();
 
