@@ -27,7 +27,7 @@ app.post('/getTokens', async (req, res) => {
     code: req.body.code
   }
   const access = await web.oauth.access(params).catch(err => console.error(err))
-  res.render('tokens', access)
+  res.render('tokens', { access })
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
