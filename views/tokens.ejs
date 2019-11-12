@@ -78,7 +78,6 @@
 
         /* Select the text field */
         copyText.select();
-        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
 
         /* Copy the text inside the text field */
         document.execCommand("copy");
@@ -99,41 +98,39 @@
           <input
             type="text"
             id="accessToken"
-            disabled
-            value="<%- access_token%>"
+            value="<%- access.access_token%>"
           />
           <button onclick="copy('accessToken')">copy</button>
         </div>
-        <% if (locals.bot_token) { %>
+        <% if (access.bot) { %>
         <div class="item">
-          <p>Bot Token</p>
-          <input type="text" id="botToken" disabled value="<%- bot_token %>" />
+          <p>Bot Access Token</p>
+          <input type="text" id="botToken" value="<%- access.bot.bot_access_token %>" />
           <button onclick="copy('botToken')">copy</button>
         </div>
         <% } %>
         <div class="item">
           <p>Scope</p>
-          <input type="text" id="scope" disabled value="<%- scope %>" />
+          <input type="text" id="scope" value="<%- access.scope %>" />
           <button onclick="copy('scope')">copy</button>
         </div>
         <div class="item">
           <p>User ID</p>
-          <input type="text" id="user_id" disabled value="<%- user_id %>" />
+          <input type="text" id="user_id" value="<%- access.user_id %>" />
           <button onclick="copy('user_id')">copy</button>
         </div>
         <div class="item">
           <p>Team</p>
-          <input type="text" id="team_id" disabled value="<%- team_id %>" />
+          <input type="text" id="team_id" value="<%- access.team_id %>" />
           <button onclick="copy('team_id')">copy</button>
         </div>
-        <% if (locals.enterprise_id) { %>
+        <% if (access.enterprise_id) { %>
         <div class="item">
           <p>Enterprise ID</p>
           <input
             type="text"
             id="enterprise_id"
-            disabled
-            value="<%- enterprise_id %>"
+            value="<%- access.enterprise_id %>"
           />
           <button onclick="copy('enterprise_id')">copy</button>
         </div>
@@ -143,8 +140,7 @@
           <input
             type="text"
             id="team_name"
-            disabled
-            value="<%- team_name %>"
+            value="<%- access.team_name %>"
           />
           <button onclick="copy('team_name')">copy</button>
         </div>
